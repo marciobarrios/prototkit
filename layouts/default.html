@@ -1,0 +1,18 @@
+<%= render "head" %>
+</head>
+
+<body class="home">
+	<%= render "nav" %>
+	<div class="container">				
+		<div class="sixteen columns content">
+			<%= yield %>
+		</div>
+		<div id="sidebar">
+	      <h2>Documentation</h2>
+			<p>Random text: </p>
+			<p><%= random_text %></p>
+	    </div>
+	</div>
+
+<%= render "footer" %>
+

@@ -1,0 +1,74 @@
+// Defaults which you can freely override
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+@colspan: 1;
+
+// Utility variable — you should never need to modify this
+@_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+
+// Set @total-width to 100% for a fluid layout
+@total-width: @_gridsystem-width;
+
+
+/*.offsetMath(@extraSpace: 40px) {
+  margin-left: (@gridColumnWidth * @columnOffset) + (@gridGutterWidth * (@columnOffset - 1)) + @extraSpace !important;
+}
+.offset(@columnOffset: 1) {
+  .offsetMath(40px);
+  &:first-child {
+    .offsetMath(20px);
+  }
+}*/
+
+
+
+//////////
+// GRID //
+//////////
+
+body {
+	width: 100%;
+	float: left;
+}
+
+.row(@columns:@columns) {
+	display: inline-block;
+	overflow: hidden;
+	width: @total-width*((@gutter-width + @_gridsystem-width)/@_gridsystem-width);
+	margin: 0 @total-width*(((@gutter-width*.5)/@_gridsystem-width)*-1);
+}
+
+.column(@x,@columns:@columns) {
+	display: inline;
+	float: left;
+	overflow: hidden;
+	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width);
+	margin: 0 @total-width*((@gutter-width*.5)/@_gridsystem-width);
+}
+
+
+// Grid System
+/*.container {
+  width: @siteWidth;
+  margin: 0 auto;
+  .clearfix();
+}
+.columns(@columnSpan: 1) {
+  float: left;
+  width: (@gridColumnWidth * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1));
+  margin-left: @gridGutterWidth;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+*/
+
+
+
+
+/*@gridColumns:       16;
+@gridColumnWidth:   40px;
+@gridGutterWidth:   20px;
+@siteWidth:         (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+*/
